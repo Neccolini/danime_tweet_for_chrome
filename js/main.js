@@ -41,7 +41,7 @@ video.addEventListener("ended",function(){
     console.log("ended");
         var animeTitle = $(".pauseInfoTxt1").text();
         var animeEpisodeNumber = $(".pauseInfoTxt2").text();
-        var text = animeTitle + " " + animeEpisodeNumber + "を視聴しました! #dアニメストア";
+        var text = animeTitle + " " + animeEpisodeNumber + "を視聴しました！ #dアニメストア";
         var script = elt("script", {
             "src": "https://platform.twitter.com/widgets.js",
             "charset": "utf-8"
@@ -54,7 +54,13 @@ video.addEventListener("ended",function(){
             "data-lang": "ja",
             "data-show-count": "false",
         }, "Tweet");
-    var nextButtonAfter=document.getElementsByClassName("nextButtonAfter");
+
+    var nextButtonAfter = document.getElementsByClassName("nextButtonAfter");
     nextButtonAfter[0].appendChild(script);
     nextButtonAfter[0].appendChild(element);
+    if(document.getElementsByClassName("nextBody show").length==0){
+    var addToMylist = document.getElementById("addToMylist");
+    addToMylist.appendChild(script);
+    addToMylist.appendChild(element);
+    }
 })
