@@ -26,13 +26,15 @@ https://anime.dmkt-sp.jp/animestore/sc_d_pc?partId=21025001
                 ↓こうしたい
 https://anime.dmkt-sp.jp/animestore/ci_pc?workId=21025&partId=21025001
 
-*/
+
 var url = location.href;
 var partId=url.replace(/[^0-9]/g, '')-'0';
 var workId=Math.floor(partId/1000);
 var replace_to = "ci_pc?workId="+workId+"&";
 url = url.replace("sc_d_pc?", replace_to);
+*/
 
+var url = location.href.replace(/sc_d_pc\?partId=(\d{5})(\d{3})/, 'ci_pc?workId=$1&partId=$1$2');
 
 
 video.addEventListener("ended",function(){
