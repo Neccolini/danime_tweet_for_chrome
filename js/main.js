@@ -37,16 +37,15 @@ url = url.replace("sc_d_pc?", replace_to);
 var url = location.href.replace(/sc_d_pc\?partId=(\d{5})(\d{3})/, 'ci_pc?workId=$1&partId=$1$2');
 
 video.addEventListener("play",function(){
-    console.log("started");
+    //console.log("started");
     var twitterbutton = document.getElementById("twitter-widget-0");
     if(twitterbutton){
     twitterbutton.parentNode.removeChild(twitterbutton);
     }
-    console.log("deleted");
-    /*addToListの方も消すべきかも?*/
+    //console.log("deleted");
 })
 video.addEventListener("ended",function(){
-    console.log("ended");
+    //console.log("ended");
         var animeTitle = $(".pauseInfoTxt1").text();
         var animeEpisodeNumber = $(".pauseInfoTxt2").text();
         var text = animeTitle + " " + animeEpisodeNumber + "を視聴しました！ #dアニメストア";
