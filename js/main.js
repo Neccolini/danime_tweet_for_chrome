@@ -16,7 +16,7 @@ function elt(name, attributes) {
     }
     return node;
 }
-console.log("start");
+console.log("danimestore");
 
 var video =$("#video").get(0);
 
@@ -36,7 +36,15 @@ url = url.replace("sc_d_pc?", replace_to);
 
 var url = location.href.replace(/sc_d_pc\?partId=(\d{5})(\d{3})/, 'ci_pc?workId=$1&partId=$1$2');
 
-
+video.addEventListener("play",function(){
+    console.log("started");
+    var twitterbutton = document.getElementById("twitter-widget-0");
+    if(twitterbutton){
+    twitterbutton.parentNode.removeChild(twitterbutton);
+    }
+    console.log("deleted");
+    /*addToListの方も消すべきかも?*/
+})
 video.addEventListener("ended",function(){
     console.log("ended");
         var animeTitle = $(".pauseInfoTxt1").text();
@@ -54,7 +62,7 @@ video.addEventListener("ended",function(){
             "data-lang": "ja",
             "data-show-count": "false",
         }, "Tweet");
-
+    
     var nextButtonAfter = document.getElementsByClassName("nextButtonAfter");
     nextButtonAfter[0].appendChild(script);
     nextButtonAfter[0].appendChild(element);
